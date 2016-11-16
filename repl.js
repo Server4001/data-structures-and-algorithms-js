@@ -19,6 +19,8 @@ replServer.context.path = path;
 replServer.context.fs = fs;
 replServer.context.List = List;
 replServer.context.Stack = Stack;
+replServer.context.baseConvert = require('./Functions/BaseConvert');
+replServer.context.palindrome = require('./functions/Palindrome');
 
 let l = new List();
 l.append(1).append(2).append(3);

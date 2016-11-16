@@ -6,25 +6,28 @@ class Stack {
         this.top = 0;
     }
 
-    push() {
+    clear() {
+        this.top = 0;
 
+        return this;
+    }
+
+    length() {
+        return this.top;
+    }
+
+    push(element) {
+        this.dataStore[this.top++] = element;
+
+        return this;
     }
 
     pop() {
-
+        return this.dataStore[--this.top];
     }
 
     peek() {
-
-    }
-
-    empty() {
-        return this.dataStore.length === 0;
-    }
-
-    clear() {
-        this.dataStore = [];
-        this.top = 0;
+        return this.dataStore[this.top - 1];
     }
 }
 
