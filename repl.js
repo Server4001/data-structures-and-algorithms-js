@@ -10,6 +10,7 @@ let fs = require('fs');
 let repl = require('repl');
 let List = require('./DataStructures/List');
 let Stack = require('./DataStructures/Stack');
+let Queue = require('./DataStructures/Queue');
 
 let replServer = repl.start({
     prompt: 'DS > '
@@ -19,6 +20,7 @@ replServer.context.path = path;
 replServer.context.fs = fs;
 replServer.context.List = List;
 replServer.context.Stack = Stack;
+replServer.context.Queue = Queue;
 replServer.context.baseConvert = require('./Functions/BaseConvert');
 replServer.context.palindrome = require('./functions/Palindrome');
 
@@ -28,3 +30,6 @@ replServer.context.l = l;
 
 let s = new Stack();
 replServer.context.s = s;
+
+let q = new Queue();
+replServer.context.q = q;
