@@ -45,6 +45,33 @@ class LinkedList {
         return this._head;
     }
 
+    insertAfter(newValue, existingValue) {
+        if (!this._head) {
+            return this.add(newValue);
+        }
+
+        let current = this._head;
+
+        while (current.value !== existingValue) {
+            if (current.next === null) {
+                break;
+            }
+
+            current = current.next;
+        }
+
+        let newNode = new Node(newValue);
+        newNode.next = current.next;
+        current.next = newNode;
+        this._length++;
+
+        if (this._tail === current) {
+            this._tail = newNode;
+        }
+
+        return this;
+    }
+
     remove(value) {
         if (!this.contains(value)) {
             return false;
@@ -88,6 +115,22 @@ class LinkedList {
 
     tail() {
         return this._tail;
+    }
+
+    toString() {
+        if (!this.head) {
+            return '';
+        }
+
+        let current = this._head;
+        let str = current.value + "\n";
+
+        while (current.next !== null) {
+            current = current.next;
+            str += current.value + "\n";
+        }
+
+        return str;
     }
 }
 
