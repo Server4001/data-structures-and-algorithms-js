@@ -87,7 +87,7 @@ class LinkedList {
     }
 
     tail() {
-        return this.tail;
+        return this._tail;
     }
 }
 
