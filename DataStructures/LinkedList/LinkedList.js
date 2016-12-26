@@ -118,7 +118,7 @@ class LinkedList {
     }
 
     toString() {
-        if (!this.head) {
+        if (!this._head) {
             return '';
         }
 
