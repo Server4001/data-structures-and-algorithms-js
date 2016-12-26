@@ -12,6 +12,7 @@ let List = require('./DataStructures/List');
 let Stack = require('./DataStructures/Stack');
 let Queue = require('./DataStructures/Queue');
 let LinkedList = require('./DataStructures/LinkedList/LinkedList');
+let DoublyLinkedList = require('./DataStructures/DoublyLinkedList/DoublyLinkedList');
 
 let replServer = repl.start({
     prompt: 'DS > '
@@ -23,6 +24,7 @@ replServer.context.List = List;
 replServer.context.Stack = Stack;
 replServer.context.Queue = Queue;
 replServer.context.LinkedList = LinkedList;
+replServer.context.DoublyLinkedList = DoublyLinkedList;
 replServer.context.baseConvert = require('./Functions/BaseConvert');
 replServer.context.palindrome = require('./functions/Palindrome');
 
@@ -39,3 +41,7 @@ replServer.context.q = q;
 let ll = new LinkedList();
 ll.add(1).add(2).add(3);
 replServer.context.ll = ll;
+
+let dll = new DoublyLinkedList();
+dll.add(1).add(2).add(3);
+replServer.context.dll = dll;
