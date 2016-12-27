@@ -14,7 +14,6 @@ let Queue = require('./DataStructures/Queue');
 let LinkedList = require('./DataStructures/LinkedList/LinkedList');
 let DoublyLinkedList = require('./DataStructures/DoublyLinkedList/DoublyLinkedList');
 let Dictionary = require('./DataStructures/Dictionary/Dictionary');
-let DictionaryObject = require('./DataStructures/Dictionary/Dictionary-ObjectDataStore');
 
 let replServer = repl.start({
     prompt: 'DS > '
@@ -28,7 +27,6 @@ replServer.context.Queue = Queue;
 replServer.context.LinkedList = LinkedList;
 replServer.context.DoublyLinkedList = DoublyLinkedList;
 replServer.context.Dictionary = Dictionary;
-replServer.context.DictionaryObject = DictionaryObject;
 replServer.context.baseConvert = require('./Functions/BaseConvert');
 replServer.context.palindrome = require('./functions/Palindrome');
 
@@ -51,11 +49,6 @@ dll.add(1).add(2).add(3);
 replServer.context.dll = dll;
 
 let dict = new Dictionary();
-dict.add('one', 1);
-dict.add('two', 2);
-dict.add('three', 3);
+dict.add('5', 'five');
+dict.add(12, 'twelve');
 replServer.context.dict = dict;
-
-let dictObject = new DictionaryObject();
-dictObject.add('5', 'five');
-replServer.context.dictObject = dictObject;
