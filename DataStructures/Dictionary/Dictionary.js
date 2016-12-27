@@ -53,6 +53,17 @@ class Dictionary {
 
         return str;
     }
+
+    toStringSorted() {
+        let str = '';
+        let keys = Object.keys(this._data);
+
+        for (let key of keys) {
+            str += 'key: ' + key + '. value: ' + this._data[key] + "\n";
+        }
+
+        return str;
+    }
 }
 
 module.exports = Dictionary;
