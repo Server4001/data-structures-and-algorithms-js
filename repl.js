@@ -56,4 +56,9 @@ dict.add(12, 'twelve');
 replServer.context.dict = dict;
 
 let hash = new HashTable();
+hash.put('a')
+    .put('b')
+    .put('c')
+    .put('d')
+    .put('e');
 replServer.context.hash = hash;
