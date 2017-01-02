@@ -15,6 +15,7 @@ let LinkedList = require('./DataStructures/LinkedList/LinkedList');
 let DoublyLinkedList = require('./DataStructures/DoublyLinkedList/DoublyLinkedList');
 let Dictionary = require('./DataStructures/Dictionary');
 let HashTable = require('./DataStructures/HashTable/HashTableSeparateChaining');
+let Set = require('./DataStructures/Set');
 
 let replServer = repl.start({
     prompt: 'DS > '
@@ -29,6 +30,7 @@ replServer.context.LinkedList = LinkedList;
 replServer.context.DoublyLinkedList = DoublyLinkedList;
 replServer.context.Dictionary = Dictionary;
 replServer.context.HashTable = HashTable;
+replServer.context.Set = Set;
 replServer.context.baseConvert = require('./Functions/BaseConvert');
 replServer.context.palindrome = require('./functions/Palindrome');
 
@@ -71,3 +73,10 @@ hash.put('a', 1)
     .put(4, 'four')
     .put(5, 'five');
 replServer.context.hash = hash;
+
+let set = new Set();
+set.add('Brittney');
+set.add('Bill');
+set.remove('Brittney');
+set.add('Alice');
+replServer.context.set = set;
