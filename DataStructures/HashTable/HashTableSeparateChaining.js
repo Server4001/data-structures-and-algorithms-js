@@ -2,7 +2,9 @@
 
 // Uses separate chaining for collision resolution.
 
-class HashTable {
+const hash = require('./HashFunction');
+
+class HashTableSeparateChaining {
     constructor() {
         this.table = new Array(137);
         this.buildChains();
@@ -31,9 +33,11 @@ class HashTable {
     toString() {
         let str = '';
 
-        for (let key in this.table) {
-            if (this.table[key] !== undefined) {
-                str += 'key: ' + key + '. value: ' + this.table[key] + "\n";
+        for (let i in this.table) {
+            const bucket = this.table[i];
+
+            for (let j = 0; j < bucket.length; j += 2) {
+                str += 'Key: ' + bucket[j] + '. Value: ' + bucket[j + 1] + "\n";
             }
         }
 
@@ -47,18 +51,4 @@ class HashTable {
     }
 }
 
-const hash = function(value, table) {
-    const valueString = value.toString();
-    const H = 37;
-    let total = 0;
-
-    for (let i = 0; i < valueString.length; i++) {
-        total += H * total + valueString.charCodeAt(i);
-    }
-
-    total %= table.length;
-
-    return parseInt(total);
-};
-
-module.exports = HashTable;
+module.exports = HashTableSeparateChaining;
