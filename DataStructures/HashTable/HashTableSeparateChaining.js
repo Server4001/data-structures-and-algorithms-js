@@ -33,13 +33,11 @@ class HashTableSeparateChaining {
     toString() {
         let str = '';
 
-        for (let i in this.table) {
-            const bucket = this.table[i];
-
+        this.table.forEach((bucket) => {
             for (let j = 0; j < bucket.length; j += 2) {
                 str += 'Key: ' + bucket[j] + '. Value: ' + bucket[j + 1] + "\n";
             }
-        }
+        });
 
         return str;
     }

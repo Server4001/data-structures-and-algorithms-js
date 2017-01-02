@@ -38,11 +38,11 @@ class HashTableLinearProbing {
     toString() {
         let str = '';
 
-        for (let key in this.table) {
-            if (this.table[key] !== undefined) {
+        this.table.forEach((key) => {
+            if (key !== undefined) {
                 str += 'key: ' + key + '. value: ' + this.values[key] + "\n";
             }
-        }
+        });
 
         return str;
     }
