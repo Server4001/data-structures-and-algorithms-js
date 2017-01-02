@@ -13,7 +13,7 @@ let Stack = require('./DataStructures/Stack');
 let Queue = require('./DataStructures/Queue');
 let LinkedList = require('./DataStructures/LinkedList/LinkedList');
 let DoublyLinkedList = require('./DataStructures/DoublyLinkedList/DoublyLinkedList');
-let Dictionary = require('./DataStructures/Dictionary/Dictionary');
+let Dictionary = require('./DataStructures/Dictionary');
 let HashTable = require('./DataStructures/HashTable/HashTableSeparateChaining');
 
 let replServer = repl.start({
