@@ -1,19 +1,31 @@
 'use strict';
 
+// Uses separate chaining for collision resolution.
+
 class HashTable {
     constructor() {
         this.table = new Array(137);
+        this.buildChains();
     }
 
-    put(key, data) {
+    put(key, value) {
         const hashedKey = hash(key, this.table);
-        this.table[hashedKey] = data;
+        const nextIndex = this.table[hashedKey].length;
+
+        this.table[hashedKey][nextIndex] = key;
+        this.table[hashedKey][nextIndex + 1] = value;
 
         return this;
     }
 
     get(key) {
-        return this.table[hash(key, this.table)];
+        const bucket = this.table[hash(key, this.table)];
+
+        for (let i = 0; i < bucket.length; i += 2) {
+            if (bucket[i] === key) {
+                return bucket[i + 1];
+            }
+        }
     }
 
     toString() {
@@ -26,6 +38,12 @@ class HashTable {
         }
 
         return str;
+    }
+
+    buildChains() {
+        for (let i = 0; i < this.table.length; i++) {
+            this.table[i] = [];
+        }
     }
 }
 
