@@ -14,12 +14,7 @@ class Dictionary {
     }
 
     clear() {
-        for (let key in this._data) {
-            if (this._data.hasOwnProperty(key)) {
-                delete this._data[key];
-            }
-        }
-
+        this._data = {};
         this._length = 0;
 
         return this;

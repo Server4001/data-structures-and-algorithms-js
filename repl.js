@@ -40,6 +40,10 @@ let s = new Stack();
 replServer.context.s = s;
 
 let q = new Queue();
+q.enqueue('a');
+q.enqueue('b');
+q.enqueue('c');
+q.dequeue();
 replServer.context.q = q;
 
 let ll = new LinkedList();

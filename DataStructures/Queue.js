@@ -28,12 +28,9 @@ class Queue {
     }
 
     toString() {
-        let str = '';
-        for (let i = 0; i < this.dataStore.length; i++) {
-            str += this.dataStore[i] + "\n";
-        }
-
-        return str;
+        return this.dataStore.reduce((accumulator, value) => {
+            return accumulator + value + "\n"
+        }, '');
     }
 }
 
