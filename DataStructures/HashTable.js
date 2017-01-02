@@ -5,11 +5,15 @@ class HashTable {
         this.table = new Array(137);
     }
 
-    put(data) {
-        const key = hash(data, this.table);
-        this.table[key] = data;
+    put(key, data) {
+        const hashedKey = hash(key, this.table);
+        this.table[hashedKey] = data;
 
         return this;
+    }
+
+    get(key) {
+        return this.table[hash(key, this.table)];
     }
 
     toString() {
@@ -26,11 +30,12 @@ class HashTable {
 }
 
 const hash = function(value, table) {
+    const valueString = value.toString();
     const H = 37;
     let total = 0;
 
-    for (let i = 0; i < value.length; i++) {
-        total += H * total + value.charCodeAt(i);
+    for (let i = 0; i < valueString.length; i++) {
+        total += H * total + valueString.charCodeAt(i);
     }
 
     total %= table.length;
