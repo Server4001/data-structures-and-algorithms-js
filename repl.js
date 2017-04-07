@@ -16,6 +16,7 @@ let DoublyLinkedList = require('./DataStructures/DoublyLinkedList/DoublyLinkedLi
 let Dictionary = require('./DataStructures/Dictionary');
 let HashTable = require('./DataStructures/HashTable/HashTableSeparateChaining');
 let Set = require('./DataStructures/Set');
+let BinarySearchTree = require('./DataStructures/BinarySearchTree/BinarySearchTree');
 
 let replServer = repl.start({
     prompt: 'DS > '
@@ -31,6 +32,7 @@ replServer.context.DoublyLinkedList = DoublyLinkedList;
 replServer.context.Dictionary = Dictionary;
 replServer.context.HashTable = HashTable;
 replServer.context.Set = Set;
+replServer.context.BinarySearchTree = BinarySearchTree;
 replServer.context.baseConvert = require('./Functions/BaseConvert');
 replServer.context.palindrome = require('./functions/Palindrome');
 
@@ -80,3 +82,13 @@ set.add('Bill');
 set.remove('Brittney');
 set.add('Alice');
 replServer.context.set = set;
+
+let bst = new BinarySearchTree();
+bst.add(23);
+bst.add(45);
+bst.add(16);
+bst.add(37);
+bst.add(3);
+bst.add(99);
+bst.add(22);
+replServer.context.bst = bst;
